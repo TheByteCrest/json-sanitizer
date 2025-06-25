@@ -1,7 +1,6 @@
-
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+import express from "express";
+import cors from "cors";
+import bodyParser from "body-parser";
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,8 +16,8 @@ app.post("/sanitize", (req, res) => {
   }
 
   const sanitized = text
-    .replace(/"/g, "\\\"")
-    .replace(/'/g, "\\'")
+    .replace(/\\/g, "\\\\")
+    .replace(/"/g, '\\"')
     .replace(/\n/g, "\\n")
     .replace(/\r/g, "")
     .replace(/\t/g, "\\t");
